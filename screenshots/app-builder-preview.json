@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "ICAN CA Foundation",
+      "hasCanvas": false,
+      "bodyTextLen": 211,
+      "bodyTextHash": "435f6f39ab3b514fc2fc283f58b3b60787c8cc08667fc476efdd1fb81b824008",
+      "bodyTextPrefix": "INSTITUTE OF CHARTERED ACCOUNTANTS OF NEPAL ICAN CA Foundation O",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "ICAN CA Foundation",
+      "hasCanvas": false,
+      "bodyTextLen": 244,
+      "bodyTextHash": "0753adbbcaf04b4b37da78c64f48bbbf4449619691e74518e176e861c86e1eb8",
+      "bodyTextPrefix": "INSTITUTE OF CHARTERED ACCOUNTANTS OF NEPAL ICAN CA Foundation O",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}

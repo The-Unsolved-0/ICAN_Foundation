@@ -1,0 +1,208 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Fraunces", "Iowan Old Style", Palatino, serif;
+  --font-sans: "Outfit", "Avenir Next", "Segoe UI", sans-serif;
+
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-line: var(--c-line);
+  --color-primary: var(--c-primary);
+  --color-primary-fg: var(--c-primary-fg);
+  --color-tintb: var(--c-tintb);
+  --color-tintc: var(--c-tintc);
+
+  --color-ink-bg: #121614;
+  --color-ink-fg: #f4efe6;
+  --color-ink-muted: #b1aa9c;
+  --color-ink-bar: #e2a31a;
+  --color-paper-bg: #f4f0e6;
+  --color-paper-fg: #1c1915;
+  --color-paper-muted: #5e584e;
+  --color-paper-bar: #8a4b12;
+  --color-monsoon-bg: #10151c;
+  --color-monsoon-fg: #e7eef5;
+  --color-monsoon-muted: #a5b3c2;
+  --color-monsoon-bar: #e08a55;
+  --color-temple-bg: #170f12;
+  --color-temple-fg: #f6efe8;
+  --color-temple-muted: #c4b2a6;
+  --color-temple-bar: #e0b15a;
+}
+
+:root {
+  --c-bg: #121614;
+  --c-surface: #1c2420;
+  --c-surface-2: #26302a;
+  --c-fg: #f4efe6;
+  --c-muted: #b1aa9c;
+  --c-line: #3a463e;
+  --c-primary: #e2a31a;
+  --c-primary-fg: #1c1404;
+  --c-tintb: #d98462;
+  --c-tintc: #8eae86;
+  color-scheme: dark;
+}
+
+:root[data-theme="paper"] {
+  --c-bg: #f4f0e6;
+  --c-surface: #fffaf3;
+  --c-surface-2: #efe8da;
+  --c-fg: #1c1915;
+  --c-muted: #5e584e;
+  --c-line: #e3d9c8;
+  --c-primary: #8a4b12;
+  --c-primary-fg: #fff8ef;
+  --c-tintb: #a33b32;
+  --c-tintc: #2f6b4f;
+  color-scheme: light;
+}
+
+:root[data-theme="monsoon"] {
+  --c-bg: #10151c;
+  --c-surface: #1a222c;
+  --c-surface-2: #243140;
+  --c-fg: #e7eef5;
+  --c-muted: #a5b3c2;
+  --c-line: #334155;
+  --c-primary: #e08a55;
+  --c-primary-fg: #1c100a;
+  --c-tintb: #7eb0d4;
+  --c-tintc: #d4c07a;
+  color-scheme: dark;
+}
+
+:root[data-theme="temple"] {
+  --c-bg: #170f12;
+  --c-surface: #26181c;
+  --c-surface-2: #342226;
+  --c-fg: #f6efe8;
+  --c-muted: #c4b2a6;
+  --c-line: #4a3438;
+  --c-primary: #e0b15a;
+  --c-primary-fg: #1a1206;
+  --c-tintb: #e08b7a;
+  --c-tintc: #d6c7a1;
+  color-scheme: dark;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--c-primary);
+    outline-offset: 2px;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--c-primary);
+    color: var(--c-primary-fg);
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.flow-node {
+  animation: rise 480ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.river-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.15s cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.tap {
+  transition:
+    scale 150ms ease-out,
+    background-color 160ms ease-out,
+    border-color 160ms ease-out;
+}
+
+.tap:active:not(:disabled) {
+  scale: 0.96;
+}
+
+@layer components {
+  .field {
+    width: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid var(--c-line);
+    background: var(--c-surface-2);
+    color: var(--c-fg);
+    padding: 0.75rem 0.85rem;
+    font: inherit;
+    font-size: 1rem;
+  }
+
+  .field::placeholder {
+    color: var(--c-muted);
+  }
+}
+
+input[type="range"] {
+  accent-color: var(--c-primary);
+}
+
+.scrim {
+  background: color-mix(in srgb, var(--c-bg) 74%, transparent);
+}
+
+.mark {
+  color: var(--c-primary);
+  opacity: 0.35;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flow-node,
+  .river-path {
+    animation: none;
+    opacity: 1;
+    transform: none;
+    stroke-dashoffset: 0;
+  }
+
+  .tap:active:not(:disabled) {
+    scale: 1;
+  }
+}
